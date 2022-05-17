@@ -2,7 +2,7 @@
 <div class="container-dashboard">
     <Header2admin />
     <div class="container-titulo">
-        <h1>Hola {{this.nombre}}{{this.nombreAfter}}</h1>
+        <h1>Holi {{this.nombre}}{{this.nombreAfter}}</h1>
         <div class="container-perfil">
             <div class="column">
                 <h3><span id="destPalabra">Comunidades</span><br>que administras</h3>
@@ -107,7 +107,7 @@ export default {
         const dataAdmin = {
             "id_administrador": this.id_usuario
         };
-        axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_comunidades_de_admin`, dataAdmin)
+        axios.post(`http://icalldibs.000webhostapp.com/?servicio=obtener_comunidades_de_admin`, dataAdmin)
         .then(response => {
             let datosAdmin = response.data.data.datos;
             this.comunidadesAdmin = datosAdmin;
