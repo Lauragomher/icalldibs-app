@@ -107,7 +107,7 @@ export default {
         const dataAdmin = {
             "id_administrador": this.id_usuario
         };
-        axios.post(`http://icalldibs.000webhostapp.com/?servicio=obtener_comunidades_de_admin`, dataAdmin)
+        axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_comunidades_de_admin`, dataAdmin)
         .then(response => {
             let datosAdmin = response.data.data.datos;
             this.comunidadesAdmin = datosAdmin;
