@@ -6529,6 +6529,34 @@
       "comunidad_de_vecinos": "Comunidad uno",
       "id_comunidad": "1",
       "id": 799
+    },
+    {
+      "nombre": "Administrador",
+      "apellidos": "General",
+      "id_usuario": "23",
+      "id_rol": "2",
+      "id": 800
+    },
+    {
+      "nombre": "Administrador",
+      "apellidos": "General",
+      "id_usuario": "23",
+      "id_rol": "2",
+      "id": 801
+    },
+    {
+      "nombre": "Administrador",
+      "apellidos": "General",
+      "id_usuario": "23",
+      "id_rol": "2",
+      "id": 802
+    },
+    {
+      "nombre": "Administrador",
+      "apellidos": "General",
+      "id_usuario": "23",
+      "id_rol": "2",
+      "id": 803
     }
   ],
   "comunidades": [

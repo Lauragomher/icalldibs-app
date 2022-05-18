@@ -96,7 +96,7 @@ export default {
         "id_usuario": this.id_usuario,
         }
         //recogemos datos de la bd para ser utilizados - users con comunidad asignada
-        axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_datos_usuarios_comunidad`, userCom)
+        axios.post(`http://localhost/api/?servicio=obtener_datos_usuarios_comunidad`, userCom)
         .then(response => {
             console.log(response);
             let datosUser = response.data.data.datos;
@@ -132,13 +132,10 @@ export default {
                         id_comunidad: this.idComunidadNow,
                     }
                     //Volvemos a enviar los datos a user-info y se actualizan en el storage
-                    axios.post("http://localhost:3000/users", datosComunidad)  
-                    .then(result => {
-                        console.log(result)
-                        if (result.status==201) {
-                            localStorage.setItem("user-info",JSON.stringify(result.data));
-                        }
-                    })
+                    let result = Object.create(datosComunidad);
+                    console.log(result);
+                    console.log(datosComunidad)
+                    localStorage.setItem("user-info",JSON.stringify(datosComunidad));
                     /////////////////Obtener datos comunidad///////////////////////////
                     const dataCom = {
                         "id_comunidad": this.idComunidadNow

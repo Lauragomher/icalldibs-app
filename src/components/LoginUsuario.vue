@@ -62,15 +62,20 @@ export default {
      //Si el usuario es correcto lo creamos también en el cliente
      //para que recuerde la sesión sin que tenga que volver a hacer login
     async loginStorage() {
-      let result = await axios.post("http://localhost:3000/users",{
+      const person = {	
         nombre: this.nombre,
         apellidos: this.apellidos,
         id_usuario: this.id,
-        id_rol: this.id_rol,
-      });
-      if (result.status==201) {
-        localStorage.setItem("user-info",JSON.stringify(result.data));
+        id_rol: this.id_rol
       }
+      let result = Object.create(person);
+	console.log(result.nombre);
+        localStorage.setItem("user-info",JSON.stringify({
+          nombre: result.nombre,
+          apellidos: result.apellidos,
+          id_rol: result.id_rol,
+          id_usuario: result.id_usuario
+        }));
       if (this.id_rol==1) {
         this.$router.push({name:"Dashboard-vecino"});
       }
@@ -79,6 +84,7 @@ export default {
       }
       console.warn(result);
     },
+
     //funciones para mostrar/ocultar contraseña en login
     showPassword() {
       this.visibility = "text";
