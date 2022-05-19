@@ -42,7 +42,7 @@ export default {
           password: this.password
           };
           let result = await axios.post (
-          `https://icalldibs.000webhostapp.com/?servicio=login`, datos);
+          `http://localhost/api/?servicio=login`, datos);
           //obtenemos resultado de login y rol para delimitar el acceso de
           //administradores y propietarios
           const loginOk = result.data.data.resultado;
