@@ -64,8 +64,8 @@ router-link {
     cursor: pointer;
 }
 #logoAdmin {
-  width: 17em;
-  padding: 14px 16px 0 0;
+  width: 14.6em;
+  padding: 2px 16px 0 0;
 }
 p {
   text-align: center;
@@ -73,7 +73,7 @@ p {
   padding: 0 0 0 10px;
 }
 #iconoNavAdmin {
-  width: 3.4em;
+  width: 2.8em;
 }
 .nav-container {
     display: flex;
@@ -102,9 +102,9 @@ p {
 }
 .nav-container .nav-toggle {
   position: relative;
-  width: 40px;
-  height: 40px;
-  margin: 16px;
+  width: 30px;
+  height: 30px;
+  margin: 0px 1px 6px 14px;
   z-index: 2;
 }
 .nav-container .nav-toggle:hover {
@@ -136,14 +136,14 @@ p {
   width: 100vw;
   height: 100vh;
   z-index: 1;
-  font-size: 1.1em;
-  padding: 60px 20px 20px 10px;
+  font-size: 1em;
+  padding: 60px 14px 20px 10px;
   transition: transform 0.3s ease;
   transform: translate(calc(-100% - 50px), 0);
   background: rgba(255,255,255);
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 10px 0;
+  grid-gap: 4px 0;
   align-content: start;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
 }
