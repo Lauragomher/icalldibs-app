@@ -339,7 +339,6 @@ input[type=checkbox] {
     justify-content: center;
     margin: 30 0px;
     background: var(--degradado1);
-    flex-flow: row wrap;
 }
 .img-reserva img {
     height: 340px;

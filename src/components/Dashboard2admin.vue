@@ -2,7 +2,7 @@
 <div class="container-dashboard">
     <Header2admin />
     <div class="container-titulo">
-        <h1>Holi {{this.nombre}}{{this.nombreAfter}}</h1>
+        <h1>Hola {{this.nombre}}{{this.nombreAfter}}</h1>
         <div class="container-perfil">
             <div class="column">
                 <h3><span id="destPalabra">Comunidades</span><br>que administras</h3>
