@@ -37,7 +37,7 @@ export default {
     methods: {
         async signUp() {
             let result = await axios.post (
-                `https://icalldibs.000webhostapp.com/?servicio=alta_usuario`, {
+                `http://localhost/api/?servicio=alta_usuario`, {
                 "id": null,
                 "login": `${this.login}`,
                 "password": `${this.password}`,

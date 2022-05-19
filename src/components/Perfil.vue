@@ -48,7 +48,7 @@ export default {
     const dataCom = {
       "id_comunidad": this.idComunidadNow
     }
-    axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_datos_comunidad`, dataCom)
+    axios.post(`http://localhost/api/?servicio=obtener_datos_comunidad`, dataCom)
     .then(response => {
       let datosZona = response.data.data.datos;
       this.comunidadData = datosZona;

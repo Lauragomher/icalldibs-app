@@ -106,7 +106,7 @@ export default {
     methods : {
         async setReserva() {
             let result = await axios.post (
-                `https://icalldibs.000webhostapp.com/?servicio=alta_reserva`, {
+                `http://localhost/api/?servicio=alta_reserva`, {
                 "id": null,
                 "id_usuario": `${this.id_usuario}`,
                 "id_zona_comun": `${this.zona_id}`,
@@ -164,7 +164,7 @@ export default {
         };
         console.warn(this.fechaInicio)
        //Obtenemos las reservas de esa zona para revisar el aforo
-        let response = await axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_reservas_zona`, datosReservas)
+        let response = await axios.post(`http://localhost/api/?servicio=obtener_reservas_zona`, datosReservas)
             const historicoReservas = response.data.data.datos;
             console.log(response);
             historicoReservas.map(({inicio_reserva, fin_reserva, aforo_zona})=>{
@@ -272,7 +272,7 @@ export default {
           id_zona: this.zona_id,
         };
         //Obtenemos las zonas comunes para mostrar datos de la zona
-        axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_datos_zona_reserva`, datos)
+        axios.post(`http://localhost/api/?servicio=obtener_datos_zona_reserva`, datos)
         .then(response => {
             let datosZona = response.data.data.datos;
             let datosReserva= response.data.data.datos[0];

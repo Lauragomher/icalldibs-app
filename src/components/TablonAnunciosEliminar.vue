@@ -50,7 +50,7 @@ export default {
   methods: {
     async borrarAd() {
       let result = await axios.post (
-        `https://icalldibs.000webhostapp.com/?servicio=eliminar_anuncio`, {
+        `http://localhost/api/?servicio=eliminar_anuncio`, {
           "id_anuncio": this.idAnuncio,                     
         });
         const borrarOk = result.data.data.resultado;
@@ -82,7 +82,7 @@ export default {
     const dataAds = {
       id_anuncio: this.idAnuncio
     };
-    axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_datos_anuncio`, dataAds)
+    axios.post(`http://localhost/api/?servicio=obtener_datos_anuncio`, dataAds)
     .then(response => {
       let datosAd = response.data.data.datos[0];
       this.anuncio = datosAd;

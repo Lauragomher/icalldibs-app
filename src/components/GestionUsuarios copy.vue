@@ -79,7 +79,7 @@ export default {
     console.log(usuario);
     console.log(this.id_usuario);
 /////Obtenemos los usuarios registrados sin comunidad///////
-    axios.get(`https://icalldibs.000webhostapp.com/?servicio=obtener_usuarios_sin_comunidad`)
+    axios.get(`http://localhost/api/?servicio=obtener_usuarios_sin_comunidad`)
     .then(response => {
       let datosZona = response.data.data.datos;
       this.usuariosSin = datosZona;
@@ -93,7 +93,7 @@ export default {
     const dataAdmin = {
       id_administrador: this.id_usuario
     }
-    axios.post (`https://icalldibs.000webhostapp.com/?servicio=obtener_usuarios_comunidad`, dataAdmin)
+    axios.post (`http://localhost/api/?servicio=obtener_usuarios_comunidad`, dataAdmin)
     .then(response => {
       let datosZona = response.data.data.datos;
       this.usuariosCom = datosZona;

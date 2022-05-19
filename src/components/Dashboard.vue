@@ -140,7 +140,7 @@ export default {
                     const dataCom = {
                         "id_comunidad": this.idComunidadNow
                     }
-                    axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_datos_comunidad`, dataCom)
+                    axios.post(`http://localhost/api/?servicio=obtener_datos_comunidad`, dataCom)
                     .then(response => {
                         let datosZona = response.data.data.datos;
                         this.comunidadData = datosZona;
@@ -152,7 +152,7 @@ export default {
                     const data = {
                         "id_usuario": this.id_usuario
                     }
-                    axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_reservas_usuario`, data)
+                    axios.post(`http://localhost/api/?servicio=obtener_reservas_usuario`, data)
                     .then(response => {
                         let datosZona = response.data.data.datos;
                         this.reservas = datosZona;
@@ -165,7 +165,7 @@ export default {
                         id_comunidad: this.idComunidadNow,
                         zona_activa: 1,
                     };
-                    axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_zonas_usuario`, datos)
+                    axios.post(`http://localhost/api/?servicio=obtener_zonas_usuario`, datos)
                     .then(response => {
                         let datosZona = response.data.data.datos;
                         this.servicios = datosZona;

@@ -87,7 +87,7 @@ export default {
     const data = {
       "id_comunidad": this.idComunidad
     }
-    axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_anuncios_comunidad`, data)
+    axios.post(`http://localhost/api/?servicio=obtener_anuncios_comunidad`, data)
     .then(response => {
       let datosZona = response.data.data.datos;
       this.anuncio = datosZona;
@@ -101,7 +101,7 @@ export default {
     const dataCom = {
       "id_comunidad": this.idComunidad
     }
-    axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_datos_comunidad`, dataCom)
+    axios.post(`http://localhost/api/?servicio=obtener_datos_comunidad`, dataCom)
     .then(response => {
       let datosZona = response.data.data.datos;
       this.comunidadData = datosZona;

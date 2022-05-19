@@ -61,7 +61,7 @@ export default {
   methods: {
     async editCom() {
       let result = await axios.post (
-        `https://icalldibs.000webhostapp.com/?servicio=modificar_comunidad`, {
+        `http://localhost/api/?servicio=modificar_comunidad`, {
           "id_comunidad": this.idComunidad, 
           "nombre_comunidad": this.comunidad.nombre_comunidad,
           "provincia_comunidad": this.comunidad.provincia_comunidad,                
@@ -94,7 +94,7 @@ export default {
     const dataComunidad = {
       id_comunidad: this.idComunidad
     };
-    axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_datos_comunidad`, dataComunidad)
+    axios.post(`http://localhost/api/?servicio=obtener_datos_comunidad`, dataComunidad)
     .then(response => {
       let datosComunidad= response.data.data.datos[0];
       this.comunidad = datosComunidad;

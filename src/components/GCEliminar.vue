@@ -52,7 +52,7 @@ export default {
   methods: {
     async borrarCom() {
       let result = await axios.post (
-        `https://icalldibs.000webhostapp.com/?servicio=eliminar_comunidad`, {
+        `http://localhost/api/?servicio=eliminar_comunidad`, {
           "id_comunidad": this.idComunidad,                     
         });
         const borrarOk = result.data.data.resultado;
@@ -79,7 +79,7 @@ export default {
     const dataCom = {
       id_comunidad: this.idComunidad
     };
-    axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_datos_comunidad`, dataCom)
+    axios.post(`http://localhost/api/?servicio=obtener_datos_comunidad`, dataCom)
     .then(response => {
       let datosCom = response.data.data.datos[0];
       this.comunidad = datosCom;

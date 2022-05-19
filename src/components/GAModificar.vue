@@ -78,7 +78,7 @@ export default {
   methods: {
     async editZona() {
       let result = await axios.post (
-        `https://icalldibs.000webhostapp.com/?servicio=modificar_zona_comun`, {
+        `http://localhost/api/?servicio=modificar_zona_comun`, {
           "id_zona": this.idZona,
           "id_comunidad": this.zonas.id_comunidad, 
           "nombre_zona": this.zonas.tipo_zona,
@@ -129,7 +129,7 @@ export default {
     const dataZona = {
       id_zona: this.idZona
     };
-    axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_datos_zona_reserva`, dataZona)
+    axios.post(`http://localhost/api/?servicio=obtener_datos_zona_reserva`, dataZona)
     .then(response => {
       let datosZona= response.data.data.datos[0];
       this.zonas = datosZona;

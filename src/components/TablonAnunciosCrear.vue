@@ -69,7 +69,7 @@ export default {
       // Para vecinos - Los vecinos no pueden seleccionar la fecha
       if(this.id_rol==1||this.rol_usuario==1){
         let result = await axios.post (
-          `https://icalldibs.000webhostapp.com/?servicio=alta_mensaje_tablon`, {
+          `http://localhost/api/?servicio=alta_mensaje_tablon`, {
             "id_usuario": this.id_usuario,                
             "id_comunidad": this.idComunidad,
             "titulo": this.titulo_anuncio,
@@ -85,7 +85,7 @@ export default {
       //Si el usuario es admin - Los administradores pueden usar la fecha que deseen
       if(this.id_rol==2||this.rol_usuario==2){
           let result = await axios.post (
-            `https://icalldibs.000webhostapp.com/?servicio=alta_mensaje_tablon`, {
+            `http://localhost/api/?servicio=alta_mensaje_tablon`, {
               "id_usuario": this.id_usuario,                
               "id_comunidad": this.idComunidad,
               "titulo": this.titulo_anuncio,

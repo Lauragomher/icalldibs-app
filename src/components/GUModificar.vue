@@ -57,7 +57,7 @@ export default {
   methods: {
     async editUserCom() {
       let result = await axios.post (
-        `https://icalldibs.000webhostapp.com/?servicio=modificar_usuario`, {
+        `http://localhost/api/?servicio=modificar_usuario`, {
           "id_usuario": this.idUsuarioCom, 
           "id_administrador": this.id_usuario,
           "nombre_usuario": this.user.nombre_usuario,
@@ -88,7 +88,7 @@ export default {
     const dataUser = {
       id_usuario: this.idUsuarioCom
     };
-    axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_datos_usuario`, dataUser)
+    axios.post(`http://localhost/api/?servicio=obtener_datos_usuario`, dataUser)
     .then(response => {
       let datosUser = response.data.data.datos[0];
       this.user = datosUser;

@@ -59,7 +59,7 @@ export default {
     const data = {
       "id_usuario": this.id_usuario
     }
-    axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_reservas_usuario`, data)
+    axios.post(`http://localhost/api/?servicio=obtener_reservas_usuario`, data)
     .then(response => {
       let datosZona = response.data.data.datos;
       this.reservas = datosZona;

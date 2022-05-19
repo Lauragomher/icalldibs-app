@@ -55,7 +55,7 @@ export default {
   methods: {
     async setUserCom() {
       let result = await axios.post (
-        `https://icalldibs.000webhostapp.com/?servicio=alta_usuario_en_comunidad`, {
+        `http://localhost/api/?servicio=alta_usuario_en_comunidad`, {
           "id_usuario": this.idUsuarioCom,  
           "id_comunidad": this.comunidadSelect,                      
         });
@@ -79,7 +79,7 @@ export default {
     //le enviamos a la api la id de la comunidad y que la zona esté activa
     //para obtener las zonas comunes disponibles de esa comunidad
 ////////////////////////////////////////////
-    axios.get(`https://icalldibs.000webhostapp.com/?servicio=obtener_comunidades`)
+    axios.get(`http://localhost/api/?servicio=obtener_comunidades`)
     .then(response => {
       let datosZona = response.data.data.datos;
       this.comunidades = datosZona;

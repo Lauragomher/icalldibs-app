@@ -58,7 +58,7 @@ export default {
       zona_activa: 1,
     };
 //////////////////////Obtenemos zonas del usuario//////////////////////
-      axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_zonas_usuario`, datos)
+      axios.post(`http://localhost/api/?servicio=obtener_zonas_usuario`, datos)
       .then(response => {
         let datosZona = response.data.data.datos;
         this.servicios = datosZona;

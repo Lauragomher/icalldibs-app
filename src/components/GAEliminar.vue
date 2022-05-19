@@ -53,7 +53,7 @@ export default {
   methods: {
     async borrarZona() {
     let result = await axios.post (
-      `https://icalldibs.000webhostapp.com/?servicio=eliminar_zona_comun`, {
+      `http://localhost/api/?servicio=eliminar_zona_comun`, {
         "id_zona": this.idZona,                     
       });
       const borrarOk = result.data.data.resultado;
@@ -80,7 +80,7 @@ export default {
     const dataZona = {
       id_zona: this.idZona
     };
-    axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_datos_zona_reserva`, dataZona)
+    axios.post(`http://localhost/api/?servicio=obtener_datos_zona_reserva`, dataZona)
     .then(response => {
       let datosZona = response.data.data.datos[0];
       this.zona = datosZona;

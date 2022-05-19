@@ -73,7 +73,7 @@ export default {
   methods: {
     async newCom() {
       let result = await axios.post (
-        `https://icalldibs.000webhostapp.com/?servicio=alta_comunidad`, {
+        `http://localhost/api/?servicio=alta_comunidad`, {
           "id": null, 
           "nombre_comunidad": this.nombre_comunidad,
           "provincia_comunidad": this.provincia_comunidad,                
@@ -103,7 +103,7 @@ export default {
         //le enviamos a la api la id de la comunidad y que la zona esté activa
         //para obtener las zonas comunes disponibles de esa comunidad
 //////////////////////Obtenemos los administradores/////////////////////
-    axios.get(`https://icalldibs.000webhostapp.com/?servicio=obtener_administradores`)
+    axios.get(`http://localhost/api/?servicio=obtener_administradores`)
     .then(response => {
       let datosAdmin= response.data.data.datos;
       this.admin = datosAdmin;

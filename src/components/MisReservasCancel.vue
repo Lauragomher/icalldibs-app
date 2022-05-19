@@ -53,7 +53,7 @@ export default {
   methods: {
     async eliminarReserva() {
       let result = await axios.post (
-        `https://icalldibs.000webhostapp.com/?servicio=eliminar_reserva`, {
+        `http://localhost/api/?servicio=eliminar_reserva`, {
           "id_reserva": this.id_reserva            
         });
         const eliminarOk = result.data.data.resultado;
@@ -78,7 +78,7 @@ export default {
     const data = {
       "id_reserva": this.id_reserva
     }
-    axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_reserva_especifica`, data)
+    axios.post(`http://localhost/api/?servicio=obtener_reserva_especifica`, data)
     .then(response => {
       let datosZona = response.data.data.datos;
       this.reserva = datosZona;
@@ -91,7 +91,7 @@ export default {
     const dataZona = {
       "id_zona": this.id_zona
     }
-    axios.post(`https://icalldibs.000webhostapp.com/?servicio=obtener_datos_zona_reserva`, dataZona)
+    axios.post(`http://localhost/api/?servicio=obtener_datos_zona_reserva`, dataZona)
     .then(response => {
       let datosZona = response.data.data.datos;
       this.zona = datosZona;
