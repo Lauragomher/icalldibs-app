@@ -37,6 +37,8 @@ export default {
       id_usuario:"",
       id_zona:"",
       tipo_zona:"",
+      rol_usuario:"",
+      id_rol:"",
       nombre: "",
       descripcion: "",
       zonas:[],
@@ -53,6 +55,9 @@ export default {
     //recogemos el nombre del usuario para mostrarlo en pantalla
     this.idComunidadNow = JSON.parse(usuario).id_comunidad;
     this.id_usuario = JSON.parse(usuario).id_usuario;
+    this.rol_usuario = JSON.parse(usuario).rol_usuario;
+    //usuarios sin comunidad
+    this.id_rol = JSON.parse(usuario).id_rol;
     console.log(usuario);
     console.log(this.id_usuario);
 ///////////////////Obtener comunidades/////////////////////////
@@ -64,18 +69,15 @@ export default {
       let datosZona = response.data.data.datos;
       this.zonas = datosZona;
       console.log(response);
+      //control de acceso por rol de usuario
+      if (this.rol_usuario==1||this.id_rol==1) {
+        this.$router.push({name:"Areas-comunes"})
+      }
+      console.log(this.rol_usuario);
     })
     .catch(e => {
       console.log(e);
     });
-        /*
-        let user = localStorage.getItem("user-info");
-        //recogemos el nombre del usuario para mostrarlo en pantalla
-        this.name = JSON.parse(user).name;
-        //si el usuario no está registrado vuelve al login
-        if (!user) {
-            this.$router.push({name:"Login-vecino"})
-        }*/
   }
 }
 </script>
@@ -162,12 +164,60 @@ p {
 #hidden {
   display: none;
 }
+@media screen and (max-width: 890px){
+  .container {
+    margin: 22px 26px;
+    padding: 14px 20px;
+  }
+  p {
+    margin: 10px 0;
+    font-size: 1em;
+  }
+  h3 {
+    margin: 2em 0 16px 0;
+  }
+}
 @media screen and (max-width: 760px){
   .container-ficha {
     flex-flow: column wrap;
   }
   .texto-areas {
     max-width: 600px;
+    width: 88%;
+  }
+  .btnDel,
+  .btnDeg {
+    font-size: 1.4em;
+  }
+  .btnDeg {
+    margin: 8px 0 10px 0;
+  }
+}
+@media screen and (max-width: 490px){
+  #btnCrear {
+    padding: .6em 1em;
+  }
+  h1 {
+    font-size: 1.8em;
+  }
+  h3 {
+    font-size: 1.6em;
+  }
+  .text-areas {
+    width: 92%;
+  }
+  .btnDeg {
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .btnDel {
+    font-size: 1.3em;
+  }
+  #imgAreas {
+    width: 250px;
+    height: 200px;
+    margin: 8px 0 30px 0;
   }
 }
 </style>

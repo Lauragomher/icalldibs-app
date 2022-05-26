@@ -10,7 +10,7 @@
                     <div id="comunidadCol" v-for="item in comunidadesAdmin" :key="item">
                         <p>{{item.nombre_comunidad}}</p>
                         <router-link :to="`/gestion-comunidades/editar/`+item.id_comunidad"><button class="btnDeg">Editar</button></router-link>
-                        <router-link :to="`/tablon-anuncios/`+item.id_comunidad"><button class="btnDeg"><span class="text">Tablón de anuncios</span></button></router-link>
+                        <router-link :to="`/tablon-anuncios/`+item.id_comunidad"><button class="btnDeg"><span class="text">Tablón de<br>anuncios</span></button></router-link>
                     </div>
                 </div> 
             </div>
@@ -147,7 +147,7 @@ export default {
     border-radius: 14px;
     border: 0px solid;
     margin: -2.4em 0 1em 0;
-    padding: 2.7em 0em .8em .5em;
+    padding: 2.6em .2em 2.6em .2em;
 	box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
 	0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
 }
@@ -156,8 +156,8 @@ export default {
     flex-flow: wrap row;
     justify-content: space-evenly;
     align-content: center;
-    width: 15.6em;
-    min-height: 13em;
+    width: 13.6em;
+    min-height: 11em;
     border-radius: 14px;
     border: 0px solid;
     padding: .6em 0em .3em 0em;
@@ -195,20 +195,22 @@ export default {
     display: flex;
     flex-flow: wrap row;
     justify-content: space-evenly;
-    padding: 0 1em;
     align-items: center;
 }
 #destPalabra {
     font-size: 120%;
 }
 #comunidadCol {
-    padding: 0 1.6em 0 1.2em;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    border-radius: 12px;
+    background-color: rgb(244, 244, 244);
+    padding: 0 .6em;
+    margin: 2em 1em 0 1em;
 }
 #comunidadCol > p {
-    margin: 1.4em 1em .6em 1em;
+    margin: .8em 1em 1em 1em;
     line-height: 1.2em;
     font-size: 1.2em;
     text-align: center;
@@ -227,11 +229,12 @@ export default {
 }
 h1 {
 	position: relative;
+    font-size: 1.6em;
 	max-width: 30em;
 	background: var(--degradado1);
-	padding: 1.125em 1.5em;
+	padding: 1.1em 1.26em;
 	border-radius: .4em;
-    margin: 34px 0 0 0;
+    margin: 20px 0 0 0;
 	box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
 		0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
 }
@@ -249,9 +252,9 @@ h1::before {
 	filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, 0.1));
 }
 h3 {
-    margin:  1.4em 0 .4em 0;
+    margin:  1.4em 0 0 0;
     line-height: 1.2em;
-    font-size: 1.4em;
+    font-size: 1.2em;
     text-align: center;
 }
 .container-titulo > h3 {
@@ -277,7 +280,7 @@ h2 {
   text-align: center;
 }
 .btnDeg {
-    font-size: 1.4em;
-    padding: .56em 1em;
+    font-size: 1.2em;
+    padding: .5em 1em;
 }
 </style>

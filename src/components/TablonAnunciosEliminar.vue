@@ -54,8 +54,9 @@ export default {
           "id_anuncio": this.idAnuncio,                     
         });
         const borrarOk = result.data.data.resultado;
+        console.log(borrarOk);
           if(borrarOk=="ok"){
-            this.$router.push({to:"Tablon-anuncios"})
+            this.$router.push({name:"Tablon-anuncios"})
           }
           console.warn(result);
     }
@@ -76,8 +77,6 @@ export default {
     this.rol_usuario = JSON.parse(usuario).rol_usuario;
     console.log(usuario);
     console.log(this.id_usuario);
-        //le enviamos a la api la id de la comunidad y que la zona esté activa
-        //para obtener las zonas comunes disponibles de esa comunidad
 //////////////////////Obtenemos los datos del usuario para el prefill del formulario//////////////////////
     const dataAds = {
       id_anuncio: this.idAnuncio
@@ -92,12 +91,6 @@ export default {
     .catch(e => {
       console.log(e);
     });
-        /*
-        let user = localStorage.getItem("user-info");
-        //si el usuario no está registrado vuelve al login
-        if (!user) {
-            this.$router.push({name:"Login-vecino"})
-        }*/
   }
 }
 </script>

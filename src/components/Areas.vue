@@ -34,6 +34,7 @@ export default {
       tipo_zona:"",
       nombre: "",
       descripcion: "",
+      rol_usuario:"",
       aforo:"",
       servicios:[],
     }
@@ -49,6 +50,7 @@ export default {
     //recogemos el nombre del usuario para mostrarlo en pantalla
     this.idComunidadNow = JSON.parse(usuario).id_comunidad;
     this.id_usuario = JSON.parse(usuario).id_usuario;
+    this.rol_usuario = JSON.parse(usuario).rol_usuario;
     console.log(usuario);
     console.log(this.id_usuario);
     //le enviamos a la api la id de la comunidad y que la zona esté activa
@@ -63,6 +65,11 @@ export default {
         let datosZona = response.data.data.datos;
         this.servicios = datosZona;
         console.log(response);
+        //control de acceso por rol de usuario
+        if (this.rol_usuario==2) {
+          this.$router.push({name:"Gestion-zonas-comunes"})
+        }
+        console.log(this.rol_usuario);
       })
       .catch(e => {
         console.log(e);
@@ -90,6 +97,8 @@ export default {
 }
 h1 {
   text-align: center;
+  margin: 14px 0 0 0;
+  padding: 0;
 }
 h4 {
   margin: 0;
@@ -103,7 +112,7 @@ p {
 }
 .container {
   background-color: rgb(244, 244, 244);
-  margin-top: 3.8em;
+  margin-top: 2em;
   padding-top: 2.8em;
   margin-bottom: 3em;
 }
@@ -160,16 +169,13 @@ a {
   }
   .texto-areas {
     max-width: 600px;
-    align-content: center;
+    align-items: center;
   }
   p, h4 {
     text-align: center;
   }
   #aforoText {
     text-align: center;
-  }
-  h1 {
-    margin: 14px 0 0 0;
   }
   .container {
     padding: 6px 0 30px 0;
@@ -183,10 +189,28 @@ a {
     height: 18em;
   }
 }
+@media screen and (max-width: 630px) {
+  .container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
 @media screen and (max-width: 460px) {
-    #imgAreas {
+  h1 {
+    margin: 0;
+  }
+  #imgAreas {
     width: 16em;
     height: 12em;
+  }
+  .btnDeg {
+    font-size: 22px;
+  }
+  p {
+    font-size: 1em;
+  }
+  .texto-areas:first-child p {
+    margin-bottom: 18px;
   }
 }
 </style>

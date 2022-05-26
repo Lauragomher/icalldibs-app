@@ -14,7 +14,7 @@
         event_busy
         </span>
       </div>
-      <h3>Recuerda que una vez que la canceles si quieres volver a realizarla tendrás que hacerlo desde zonas comunes</h3>
+      <h3>Recuerda que una vez que la canceles tu reserva si quieres volver a realizarla tendrás que hacerlo desde zonas comunes</h3>
       <div class="container" id="fichaServicios" v-for="item in reserva" :key="item.id">
         <div class="container-ficha">
           <div class="texto-areas">
@@ -102,14 +102,6 @@ export default {
     .catch(e => {
       console.log(e);
     });
-        /*
-        let user = localStorage.getItem("user-info");
-        //recogemos el nombre del usuario para mostrarlo en pantalla
-        this.name = JSON.parse(user).name;
-        //si el usuario no está registrado vuelve al login
-        if (!user) {
-            this.$router.push({name:"Login-vecino"})
-        }*/
   }
 }
 </script>
@@ -152,7 +144,7 @@ export default {
 .container-areas {
   display: flex;
   flex-flow: column wrap;
-  align-content: center;
+  align-items: center;
   margin-top: 40px;
 }
 .container-title {
@@ -167,10 +159,16 @@ export default {
 h1 {
   text-align: center;
 }
+h3 {
+  padding: 0 6em;
+  line-height: 130%;
+  text-align: center;
+  margin-top: 0;
+}
 .container {
   background-color: rgb(244, 244, 244);
-  margin-top: 3.8em;
-  margin-bottom: 3em;
+  margin-top: 2.2em;
+  margin-bottom: 2.6em;
 }
 .material-icons{
   font-size: 4.4em;
@@ -214,5 +212,48 @@ p {
 }
 #hidden {
   display: none;
+}
+@media screen and (max-width: 800px) {
+  #backIcon {
+    top-padding: 10px;
+  }
+  .nav-atras {
+    padding: 10px 0 0 0;
+  }
+  h1 {
+    margin-bottom: 20px;
+  }
+  h3 {
+    padding: 0 3em;
+  }
+  .container {
+    margin: 10px 20px 0 20px;
+  }
+}
+@media screen and (max-width: 555px) {
+  .nav-atras {
+    display: none;
+  }
+  .nav-border {
+    display: none;
+  }
+  .material-icons {
+    display: none;
+  }
+  .btnCancel {
+    font-size: 24px;
+  }
+  .container-btn {
+    gap: 1em;
+    flex-flow: wrap column;
+  }
+  #checkmark {
+    font-size: 3em;
+    margin: 2px 0 16px 0;
+  }
+  h1 {
+    margin-top: 8px;
+    margin-bottom: 28px;
+  }
 }
 </style>

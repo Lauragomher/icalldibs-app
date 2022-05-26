@@ -32,6 +32,7 @@ export default {
     return {
       idComunidadNow:"",
       id_usuario:"",
+      rol_usuario:"",
       nombre: "",
       id_reserva:"",
       reservas:[],
@@ -51,6 +52,7 @@ export default {
     //recogemos el nombre del usuario para mostrarlo en pantalla
     this.idComunidadNow = JSON.parse(usuario).id_comunidad;
     this.id_usuario = JSON.parse(usuario).id_usuario;
+    this.rol_usuario = JSON.parse(usuario).rol_usuario;
     console.log(usuario);
     console.log(this.id_usuario);
     //le enviamos a la api la id de la comunidad y que la zona esté activa
@@ -64,16 +66,14 @@ export default {
       let datosZona = response.data.data.datos;
       this.reservas = datosZona;
       console.log(response);
+      //control de acceso por rol de usuario
+      if (this.rol_usuario==2) {
+        this.$router.push({name:"Geston-zonas-comunes"})
+      }
     })
     .catch(e => {
       console.log(e);
     });  
-        /*
-        let user = localStorage.getItem("user-info");
-        //si el usuario no está registrado vuelve al login
-        if (!user) {
-            this.$router.push({name:"Login-vecino"})
-        }*/
   }
 }
 </script>
@@ -91,8 +91,8 @@ h1 {
 }
 .container {
   background-color: rgb(244, 244, 244);
-  margin-top: 3.8em;
-  margin-bottom: 3em;
+  margin-top: 2.2em;
+  margin-bottom: 2.6em;
   padding-right: 15em;
 }
 .material-icons{
@@ -229,6 +229,11 @@ p {
     #imgAreas {
     width: 16em;
     height: 12em;
+  }
+  .container {
+    margin-left: 2em;
+    margin-right: 2em;
+    padding: 12px 10px 20px 10px;
   }
 }
 </style>

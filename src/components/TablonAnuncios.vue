@@ -110,12 +110,6 @@ export default {
     .catch(e => {
       console.log(e);
     });
-        /*
-        let user = localStorage.getItem("user-info");
-        //si el usuario no está registrado vuelve al login
-        if (!user) {
-            this.$router.push({name:"Login-vecino"})
-        }*/
   }
 }
 </script>

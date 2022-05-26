@@ -105,11 +105,11 @@ export default {
 
   },
   mounted(){
-        console.log(this.$route.params.com)
+    console.log(this.$route.params.com)
     this.idComunidad = this.$route.params.com;
-        /////mostrar datos usuario
+    /////mostrar datos usuario
     let usuario = localStorage.getItem("user-info");
-        //recogemos el nombre del usuario para mostrarlo en pantalla
+    //recogemos el nombre del usuario para mostrarlo en pantalla
     this.idComunidadNow = JSON.parse(usuario).id_comunidad;
     this.id_usuario = JSON.parse(usuario).id_usuario;
     this.rol_usuario = JSON.parse(usuario).rol_usuario;
@@ -118,16 +118,8 @@ export default {
     this.apellidos_usuario = JSON.parse(usuario).apellidos_usuario;
     console.log(usuario);
     console.log(this.id_usuario);
-//obtener fecha actual
+    //obtener fecha actual
     this.date = this.getDate();
-        //le enviamos a la api la id de la comunidad y que la zona esté activa
-        //para obtener las zonas comunes disponibles de esa comunidad
-//////////////////////Obtenemos los administradores/////////////////////
-        /*
-        //si el usuario no está registrado vuelve al login
-        if (!user) {
-            this.$router.push({name:"Login-vecino"})
-        }*/
   }
 }
 </script>

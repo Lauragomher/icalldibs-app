@@ -46,6 +46,8 @@ export default {
       comunidadSelect:"",
       idComunidad:"",
       id_usuario:"",
+      rol_usuario:"",
+      id_rol:"",
       comunidad:[],
     }
   },
@@ -71,6 +73,8 @@ export default {
     this.idComunidadNow = JSON.parse(usuario).id_comunidad;
     this.id_usuario = JSON.parse(usuario).id_usuario;
     this.rol_usuario = JSON.parse(usuario).rol_usuario;
+    //usuarios sin comunidad
+    this.id_rol = JSON.parse(usuario).id_rol;
     console.log(usuario);
     console.log(this.id_usuario);
         //le enviamos a la api la id de la comunidad y que la zona esté activa
@@ -84,17 +88,15 @@ export default {
       let datosCom = response.data.data.datos[0];
       this.comunidad = datosCom;
       console.log(response);
-      console.log(this.comunidad)
+      console.log(this.comunidad);
+      //control de acceso por rol de usuario
+      if (this.rol_usuario==1||this.id_rol==1) {
+        this.$router.push({name:"Areas-comunes"})
+      }
     })
     .catch(e => {
       console.log(e);
     });
-        /*
-        let user = localStorage.getItem("user-info");
-        //si el usuario no está registrado vuelve al login
-        if (!user) {
-            this.$router.push({name:"Login-vecino"})
-        }*/
   }
 }
 </script>
@@ -153,8 +155,8 @@ h1 {
 }
 .container-bg {
   background: var(--degradado2inv);
-  margin-top: 1.2em;
-  padding: 2em 7em 22em 7em;
+  margin-top: 1em;
+  padding: 1.4em 7em 22em 7em;
   margin-bottom: 8em;
   border-radius: 30px;
   box-shadow: rgb(0 0 0 / 18%) 0px 3px 8px;
@@ -228,5 +230,26 @@ h3 {
 .btnDel:hover {
   color: white;
   background: var(--rojo);
+}
+@media screen and (max-width: 555px) {
+  .container-bg {
+    padding: 1.4em 5em 24em 5em;
+  }
+  h1 {
+    font-size: 1.8em;
+    text-align: center;
+  }
+  .container {
+    margin-top: 15em;
+    padding: 14px 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .texto-areas {
+    padding: 0;
+  }
+  .btnDel {
+    font-size: 1.4em;
+  }
 }
 </style>

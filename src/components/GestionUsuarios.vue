@@ -73,6 +73,8 @@ export default {
       id_usuario:"",
       id_zona:"",
       tipo_zona:"",
+      rol_usuario:"",
+      id_rol:"",
       nombre: "",
       descripcion: "",
       aforo:"",
@@ -87,15 +89,17 @@ export default {
 
   },
   mounted(){
-    
     /////mostrar datos usuario
     let usuario = localStorage.getItem("user-info");
     //recogemos el nombre del usuario para mostrarlo en pantalla
     this.idComunidadNow = JSON.parse(usuario).id_comunidad;
     this.id_usuario = JSON.parse(usuario).id_usuario;
+    this.rol_usuario = JSON.parse(usuario).rol_usuario;
+    //usuarios sin comunidad
+    this.id_rol = JSON.parse(usuario).id_rol;
     console.log(usuario);
     console.log(this.id_usuario);
-/////Obtenemos los usuarios registrados sin comunidad///////
+    /////Obtenemos los usuarios registrados sin comunidad///////
     axios.get(`http://localhost/api/?servicio=obtener_usuarios_sin_comunidad`)
     .then(response => {
       let datosZona = response.data.data.datos;
@@ -115,18 +119,14 @@ export default {
       let datosZona = response.data.data.datos;
       this.usuariosCom = datosZona;
       console.log(response);
+      //control de acceso por rol de usuario
+      if (this.rol_usuario==1||this.id_rol==1) {
+        this.$router.push({name:"Dashboard-vecino"})
+      }
     })
     .catch(e => {
        console.log(e);
     });
-        /*
-        let user = localStorage.getItem("user-info");
-        //recogemos el nombre del usuario para mostrarlo en pantalla
-        this.name = JSON.parse(user).name;
-        //si el usuario no está registrado vuelve al login
-        if (!user) {
-            this.$router.push({name:"Login-vecino"})
-        }*/
   }
 }
 </script>
@@ -150,7 +150,7 @@ h3 {
 .tabla-usuarios-com {
   border-collapse: collapse;
   margin: 1.6em 0 3em 0;
-  font-size: 1.2em;
+  font-size: 1.1em;
   min-width: 140px;
   border: 0 solid transparent;
   border-radius: 14px;
@@ -215,7 +215,7 @@ a {
   text-decoration: none;
 }
 p {
-  font-size: 1.1em;
+  font-size: 1em;
 }
 .btnDeg {
   padding: 10px 10px;
@@ -276,7 +276,7 @@ td {
     border: none;
   }
   td:not(:first-child) {
-    font-size: 1.2em;
+    font-size: 1.1em;
     text-align: center;
   }
   td:not(:first-child):before {
@@ -306,14 +306,14 @@ td {
   .tabla-usuarios-com td:nth-child(5):before {
     content: "Comunidad: ";
   }
-.tabla-usuarios-com td:nth-child(6):before {
+  .tabla-usuarios-com td:nth-child(6):before {
     content: "ID comunidad: ";
   }
   .tabla-usuarios-com td:nth-child(7):before {
     content: "Nº vecinos: ";
   }
   td:first-child {
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: 600;
     border-radius: 10px 10px 0 0;
     display: flex;
@@ -331,7 +331,13 @@ td {
     background: linear-gradient(to right, var(--violeta)70%, var(--verde));
   } 
   td:not(:first-child) {
-    margin-top: .6em;
+    margin-top: .4em;
+  }
+  tr:first-child {
+    display: flex;
+    flex-flow: wrap column;
+    align-items: center;
+    justify-content: center;
   }
   tr {
     background-color: white;
@@ -347,6 +353,13 @@ td {
     align-items: center;
     justify-content: center;
   }
+  td:nth-child(6),
+  td:nth-child(7) {
+    margin: 0;
+  }
+  td a .btnDeg {
+    margin: 0;
+  }
 }
 @media screen and (max-width: 900px) {
   tr {
@@ -354,12 +367,12 @@ td {
     max-width: 800px;
   }
   td:first-child {
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
   .btnDeg,
   .btnDeg2,
   .btnDel {
-    font-size: .8em;
+    font-size: 1em;
   }
   td:nth-child(2):before,
   td:nth-child(3):before,

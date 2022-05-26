@@ -15,7 +15,7 @@
                                 <img id="icono" src="../assets/icono-comunidades.svg" alt="Icono de comunidades">
                                 <p id="titleCom">{{item.nombre_comunidad}}</p>
                                 <p>{{item.calle_comunidad}}. {{item.codigo_postal_comunidad}}, {{item.provincia_comunidad}}</p>
-                                <router-link :to="`/tablon-anuncios/`+item.id_comunidad"><button class="btnDeg"><span class="text">Tablón de anuncios</span></button></router-link>
+                                <router-link :to="`/tablon-anuncios/`+item.id_comunidad"><button class="btnDeg"><span class="text">Tablón de<br>anuncios</span></button></router-link>
                             </div>
                         </div> 
                     </div>
@@ -237,7 +237,7 @@ export default {
     border-radius: 14px;
     border: 0px solid;
     margin: -2.4em 0 1em 0;
-    padding: 2.7em 1.2em 1.8em 1.2em;
+    padding: 2.4em 1.2em .8em 1.2em;
 	box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
 	0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
 }
@@ -251,7 +251,7 @@ export default {
     border-radius: 14px;
     border: 0px solid;
     padding: .6em .4em 0 .4em;
-    margin: 2.4em 2.6em;
+    margin: 1.6em 2em;
     background: var(--degradado1);
 	box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
 	0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
@@ -280,7 +280,7 @@ export default {
     border-radius: 14px;
     border: 0px solid;
     padding: .6em .4em 0 .4em;
-    margin: 2.4em 2.6em;
+    margin: 1.8em 2em;
     background: rgb(244, 244, 244);
 	box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
 	0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
@@ -318,10 +318,13 @@ export default {
 }
 #comunidadCol > p {
     margin: 0 0 0.8em 0;
-    font-size: 1.1em;
+    font-size: 1em;
+    text-align: center;
+    margin-botom: .8em;
 }
 #comunidadCol > a > button.btnDeg {
     margin: 4px 0 1.2em 0;
+    padding: .6em 1em;
 }
 #titleCom {
     font-size: 1.4em;
@@ -348,11 +351,12 @@ export default {
 }
 h1 {
 	position: relative;
+    font-size: 1.6em;
 	max-width: 8em;
 	background: var(--degradado1);
-	padding: 1.125em 1.5em;
+	padding: 1.1em 1.25em;
 	border-radius: .4em;
-    margin: 34px 0 0 0;
+    margin: 20px 0 0 0;
 	box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
 		0 0.0625rem 0.125rem rgba(0, 0, 0, 0.2);
 }
@@ -369,9 +373,9 @@ h1::before {
 	filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, 0.1));
 }
 h3 {
-    margin:  1.4em 0 0 0;
+    margin:  1em 0 0 0;
     line-height: 1.2em;
-    font-size: 1.4em;
+    font-size: 1.2em;
     text-align: center;
 }
 .container-titulo > h3 {
@@ -408,7 +412,7 @@ h2 {
   text-align: center;
 }
 .btnDeg {
-    font-size: 1.4em;
+    font-size: 1.2em;
 }
 #hidden {
   display: none;

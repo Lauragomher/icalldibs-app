@@ -64,6 +64,8 @@ export default {
       idComunidad:"",
       id_usuario:"",
       id_admin:"",
+      id_rol:"",
+      rol_usuario:"",
       nombre: "",
       id_reserva:"",
       id_zona:"",
@@ -98,6 +100,8 @@ export default {
     this.idComunidadNow = JSON.parse(usuario).id_comunidad;
     this.id_usuario = JSON.parse(usuario).id_usuario;
     this.rol_usuario = JSON.parse(usuario).rol_usuario;
+    //usuarios sin comunidad
+    this.id_rol = JSON.parse(usuario).id_rol;
     console.log(usuario);
     console.log(this.id_usuario);
         //le enviamos a la api la id de la comunidad y que la zona esté activa
@@ -108,16 +112,15 @@ export default {
       let datosAdmin= response.data.data.datos;
       this.admin = datosAdmin;
       console.log(response);
-      console.log(this.admin)
+      console.log(this.admin);
+      //control de acceso por rol de usuario
+      if (this.rol_usuario==1||this.id_rol==1) {
+        this.$router.push({name:"Areas-comunes"})
+      }
     })
     .catch(e => {
       console.log(e);
     });
-        /*
-        //si el usuario no está registrado vuelve al login
-        if (!user) {
-            this.$router.push({name:"Login-vecino"})
-        }*/
   }
 }
 </script>
@@ -176,8 +179,8 @@ h1 {
 }
 .container-bg {
   background: var(--degradado2inv);
-  margin-top: 1.2em;
-  padding: 2em 9.6em 30em 9.6em;
+  margin-top: 1em;
+  padding: 1.4em 9.6em 30em 9.6em;
   margin-bottom: 8em;
   border-radius: 30px;
   box-shadow: rgb(0 0 0 / 18%) 0px 3px 8px;
@@ -272,5 +275,37 @@ h3 {
 }
 .btnAsig:hover {
   color: var(--verde);
+}
+@media screen and (max-width: 650px) {
+  .container-bg {
+    padding: 1.4em 9.6em 40em 9.6em;
+  }
+  h1 {
+    font-size: 1.8em;
+    text-align: center;
+  }
+  .container {
+    margin-top: 12.4em;
+    padding: 14px 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .texto-areas {
+    padding: 0;
+  }
+  .btnAsig {
+    font-size: 1.4em;
+  }
+}
+@media screen and (max-width: 560px) {
+  .container-int,
+  .container-intb {
+    display: flex;
+    flex-flow: column wrap;
+    grid-gap: 0;
+  }
+  .container-bg {
+    padding: 1.4em 6em 38em 6em;
+  }
 }
 </style>

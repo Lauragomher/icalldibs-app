@@ -4,13 +4,14 @@ import Home from "./components/Home.vue";
 import SignUp from "./components/SignUp.vue";
 import LoginUsuario from "./components/LoginUsuario.vue";
 //////*//*//*//*/Dentro de la plataforma/*//*//*//*//*////
-//////./PARTE DE VECINOS/.////////
-import Dashboard from "./components/Dashboard.vue";
-import Areas from "./components/Areas.vue"
+//////./COMPARTIDO/.////////
 //Tablón de anuncios
 import TablonAnuncios from "./components/TablonAnuncios.vue"
 import TablonAnunciosCrear from "./components/TablonAnunciosCrear.vue"
 import TablonAnunciosEliminar from "./components/TablonAnunciosEliminar.vue"
+//////./PARTE DE VECINOS/.////////
+import Dashboard from "./components/Dashboard.vue";
+import Areas from "./components/Areas.vue"
 //Reserva
 import formularioReserva from "./components/formularioReserva.vue";
 import SuccessReserva from "./components/SuccessReserva.vue";
@@ -18,7 +19,6 @@ import SBReserva from "./components/SBReserva.vue";
 //Histórico de reservas
 import MisReservas from "./components/MisReservas.vue";
 import MisReservasCancel from "./components/MisReservasCancel.vue";
-import Perfil from "./components/Perfil.vue";
 //////./PARTE DE ADMIN/.////////
 import Dashboard2admin from "./components/Dashboard2admin.vue";
 //Gestión usuarios
@@ -69,11 +69,6 @@ const routes = [
       path: "/areas-comunes",
       name: "Areas-comunes",
       component: Areas,
-    },
-    {
-      path: "/perfil-usuario",
-      name: "Perfil-vecino",
-      component: Perfil,
     },
     {
       path: "/reserva/:id",

@@ -149,12 +149,9 @@ export default {
                 console.log(this.fechafinal2);
             }  
         },
-
-            arrayCount (args){
+        arrayCount (args){
             alert(args.lenght);
-            },
-
-
+        },
         async checkReservas () {
         const arrayExt = this.horasfindata;
         const arrayInicioExt = this.horasdata;
@@ -219,7 +216,7 @@ export default {
             console.log(arrFinal2);
             let usarFinal2 = arrFinal2;
             console.log(this.aforoMax);
-             //HORARIO INICIO DE RESERVA - 1
+            //HORARIO INICIO DE RESERVA - 1
             //revisamos aforo vs hora y fecha reserva - inicio
             if (this.aforoMax > usarFinal1.length || this.aforoMax > usarFinal2.length){
                 console.log("Se puede reservar");
@@ -245,15 +242,10 @@ export default {
                     console.log(this.horasdata);
                     this.horasfindata.splice(index2, 1); 
                     console.log(this.horasfindata);
-                    return this.horasdata, this.horasfindata;// 2nd parameter means remove one item only
+                    return this.horasdata, this.horasfindata;
                 }
             }
-
-
-
-
         },
-
     },
     mounted () {
         //////Obtenemos la id de la zona de la URL////
@@ -639,8 +631,10 @@ label {
     .container {
         margin-top: -40px;
     }
+    .img-reserva {
+        flex-flow: row wrap;
+    }
 }
-
 @media only screen and (min-width: 560px) and (max-width: 700px){
     .container-horas {
         flex-flow: column wrap;
@@ -797,9 +791,10 @@ label {
     .container {
         width: 70vw;
     }
-    h3 {
+    .fecha-reserva h3,
+    .reserva h3 {
         width: 70vw;
-        font-size: 1.1em;
+        font-size: 1.2em;
     }
     .fecha-reserva input {
         width: 64vw;
@@ -810,6 +805,15 @@ label {
     .container-columna-horas {
         width: 135px;
         height: 276px;;
+    }
+    .container-columna-horas h4 {
+        margin-top: 8px;
+        margin-bottom: 16px;
+    }
+    .btnDeg {
+        margin: 4px 0 12px 0;
+        font-size: 1.7em;
+        padding: .6em 1.2em;
     }
 }
 </style>

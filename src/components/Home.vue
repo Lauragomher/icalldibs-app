@@ -25,7 +25,7 @@ export default {
     background-image: linear-gradient( rgba(117, 242, 175, 0.9), rgba(117, 246, 247, 0.9));
     background-color: var(--verde);
     animation: gradientAnim 16s ease infinite alternate;
-    padding: 50px;
+    padding: 0 0 0 0;
 }
 @keyframes gradientAnim {
   10% {
@@ -41,29 +41,26 @@ export default {
     background: var(--degradado1);
   }
 }
-#content {
-    justify-content: center;
-}
 .logo {
-    width: 150px;
+    width: 124px;
 }
 #titular {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
-  font-size: 76px;
+  font-size: 70px;
   -webkit-text-stroke:3px black;
   -webkit-text-fill-color:transparent;
   line-height: 0px;
-  padding: 14px 0px 0px 0px;
-  margin: 0px 0px 50px 0px;
+  padding: 1em 0 0 0;
+  margin: 0px 0px 46px 0px;
   letter-spacing: 2px;
 }
 h2 {
   text-transform: uppercase;
   font-weight: bold;
   color: white;
-  font-size: 36px;
-  line-height: 50px;
+  font-size: 32px;
+  line-height: 42px;
   margin-top: .5em;
   text-align: center;
 }
@@ -75,7 +72,7 @@ h2 {
   padding: 0.6em 2em;
   border: none;
   outline: none;
-  font-size: 1.6em;
+  font-size: 1.4em;
   font-weight: bold;
   color: rgb(255, 255, 255);
   background: #111;

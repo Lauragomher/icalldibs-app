@@ -67,7 +67,7 @@ h3 {
   margin-top: -40px;
   padding-top: 30px;
   background: var(--degradado2);
-  height: 100vh;
+  height: 100%;
 }
 .container-btn {
   display: flex;
@@ -83,11 +83,11 @@ h3 {
   color: var(--verde);
 }
 #checkmark {
-  font-size: 5em;
+  font-size: 4em;
   background-color: var(--rojo);
   border-radius: 50%;
   padding: 14px;
-  margin: 30px 0 40px 0;
+  margin: 10px 0 10px 0;
 }
 #checkmark:hover {
   color: black;
@@ -109,12 +109,14 @@ p {
 .btnDeg:hover {
   background: var(--morado);
 }
-@media  only screen and (max-width: 600px) {
+@media  only screen and (max-width: 900px) {
   .bg-color {
-  height: 100%;
+    height: fit-content;
   }
+}
+@media  only screen and (max-width: 600px) {
   .btnDeg {
-  margin: .4em 0 1.6em 0;
+    margin: .4em 0 1.6em 0;
   }
 }
 </style>

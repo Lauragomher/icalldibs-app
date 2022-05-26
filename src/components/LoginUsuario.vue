@@ -130,18 +130,53 @@ p {
   margin-top: -85px;
 }
 .background-color-1 {
-    padding: 40px 0;
+    padding: 30px 0;
     width: 100vw;
 }
 .instrucciones {
-    width: 50%;
+    width: 66%;
     margin-bottom: 24px;
 }
 .titEntrar {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-    font-size: 40px;
-    letter-spacing: 2px;
+    font-size: 44px;
+    letter-spacing: 3px;
+    margin: 10px 0 0 0;
+}
+.container {
+  margin: 30px 30px 0 30px;
+  padding: 30px 20px 30px 20px;
+}
+.login p {
+  margin: 0 0 8px 0;
+}
+.btnDeg {
+  font-size: 25px;
+  margin-top: 4px;
+}
+@media only screen and (min-width: 280px) and (max-width: 460px){
+  input {
+    width: 20em;
+  }
+  .titEntrar {
+    text-align: center;
+    font-size: 32px;
+    line-height: 42px;
+    margin-top: 16px;
+  }
+  .instrucciones {
+    width: 76%;
+    font-size: 1em;
+    margin-bottom: 14px;
+  }
+  .btnDeg {
+    margin: 4px 0 10px 0;
+    font-size: 22px;
+  }
+  .login p {
+    font-size: 0.96em;
     margin-bottom: 0;
+  }
 }
 </style> 

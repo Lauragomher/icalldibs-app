@@ -50,7 +50,7 @@ export default {
   display: flex;
   flex-flow: column wrap;
   align-content: center;
-  margin-top: 40px;
+  margin-top: 30px;
   align-items: center;
   padding: 0 5em;
 }
@@ -89,7 +89,7 @@ h3 {
   background-image: var(--degradado1);
   border-radius: 50%;
   padding: 14px;
-  margin: 30px 0 40px 0;
+  margin: 8px 0 30px 0;
 }
 #checkmark:hover {
   color: black;
@@ -111,12 +111,30 @@ p {
 .btnDeg:hover {
   background: var(--morado);
 }
-@media  only screen and (max-width: 600px) {
+@media  only screen and (max-width: 950px) {
   .bg-color {
-  height: 100%;
+    height: fit-content;
+  }
+}
+@media  only screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.6em;
+    line-height: 1.4em;
+  }
+  .container-btn {
+    gap: 1em;
   }
   .btnDeg {
-  margin: .4em 0 1.6em 0;
+    margin: .6em .4em .6em .4em;
+    font-size: 1.2em;
+    max-width: 8em;
+    flex-flow: column wrap;
+    align-content: center;
+    gap: 10px;
+  }
+  #checkmark {
+    font-size: 3em;
+    margin: 2px 0 16px 0;
   }
 }
 </style>

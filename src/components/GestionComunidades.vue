@@ -44,6 +44,8 @@ export default {
       id_usuario:"",
       id_zona:"",
       tipo_zona:"",
+      rol_usuario:"",
+      id_rol:"",
       nombre: "",
       descripcion: "",
       comunidades:[],
@@ -58,6 +60,9 @@ export default {
       //recogemos el nombre del usuario para mostrarlo en pantalla
     this.idComunidadNow = JSON.parse(usuario).id_comunidad;
     this.id_usuario = JSON.parse(usuario).id_usuario;
+    this.rol_usuario = JSON.parse(usuario).rol_usuario;
+    //usuarios sin comunidad
+    this.id_rol = JSON.parse(usuario).id_rol;
     console.log(usuario);
     console.log(this.id_usuario);
 ///////////////////Obtener comunidades/////////////////////////
@@ -69,18 +74,15 @@ export default {
       let datosZona = response.data.data.datos;
       this.comunidades = datosZona;
       console.log(response);
+      //control de acceso por rol de usuario
+      if (this.rol_usuario==1||this.id_rol==1) {
+        this.$router.push({name:"Areas-comunes"})
+      }
+      console.log(this.rol_usuario);
     })
     .catch(e => {
       console.log(e);
     });
-        /*
-        let user = localStorage.getItem("user-info");
-        //recogemos el nombre del usuario para mostrarlo en pantalla
-        this.name = JSON.parse(user).name;
-        //si el usuario no está registrado vuelve al login
-        if (!user) {
-            this.$router.push({name:"Login-vecino"})
-        }*/
   }
 }
 </script>
@@ -350,11 +352,33 @@ p {
   td:not(:first-child) {
     font-size: 1em;
   }
+  #btnCrear {
+    font-size: 1.2em;
+    margin: 10px 1em 20px 1em;
+    padding: .6em 1.4em;
+  }
 }
 @media screen and (max-width: 480px) {
-    tr {
+  tr {
     min-width: 300px;
     max-width: 420px;
+  }
+  h1 {
+    font-size: 1.6em;
+  }
+  h3 {
+    font-size: 1.2em;
+  }
+  td:first-child {
+    font-size: .9em;
+  }
+  td:not(:first-child) {
+    font-size: .9em;
+    margin-top: .2em;
+  }
+  #btnCrear {
+    margin: 10px 2em 20px 2em;
+    padding: .6em .8em;
   }
 }
 </style>

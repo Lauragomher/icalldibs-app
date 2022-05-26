@@ -65,7 +65,7 @@ router-link {
 }
 #logoAdmin {
   width: 14.6em;
-  padding: 2px 16px 0 0;
+  padding: 2px 16px 4px 0;
 }
 p {
   text-align: center;
@@ -137,7 +137,7 @@ p {
   height: 100vh;
   z-index: 1;
   font-size: 1em;
-  padding: 60px 14px 20px 10px;
+  padding: 50px 14px 20px 10px;
   transition: transform 0.3s ease;
   transform: translate(calc(-100% - 50px), 0);
   background: rgba(255,255,255);
@@ -159,5 +159,16 @@ p {
   background: rgba(130,130,130, .8);
   color: whitesmoke;
   text-decoration: none;
+}
+@media screen and (max-width: 470px) {
+  #logoAdmin {
+    width: 12.4em;
+    padding: 6px 0 4px 0;
+  }
+}
+@media screen and (max-width: 330px) {
+  #logoAdmin {
+    display: none;
+  }
 }
 </style>

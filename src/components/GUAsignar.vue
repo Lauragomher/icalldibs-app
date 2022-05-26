@@ -45,6 +45,8 @@ export default {
       idUsuarioCom:"",
       comunidadSelect:"",
       id_usuario:"",
+      rol_usuario:"",
+      id_rol:"",
       nombre: "",
       id_reserva:"",
       id_zona:"",
@@ -74,6 +76,9 @@ export default {
     //recogemos el nombre del usuario para mostrarlo en pantalla
     this.idComunidadNow = JSON.parse(usuario).id_comunidad;
     this.id_usuario = JSON.parse(usuario).id_usuario;
+    this.rol_usuario = JSON.parse(usuario).rol_usuario;
+    //usuarios sin comunidad
+    this.id_rol = JSON.parse(usuario).id_rol;
     console.log(usuario);
     console.log(this.id_usuario);
     //le enviamos a la api la id de la comunidad y que la zona esté activa
@@ -84,18 +89,14 @@ export default {
       let datosZona = response.data.data.datos;
       this.comunidades = datosZona;
       console.log(response);
+      //control de acceso por rol de usuario
+      if (this.rol_usuario==1||this.id_rol==1) {
+        this.$router.push({name:"Dashboard-vecino"})
+      }
     })
     .catch(e => {
       console.log(e);
     });
-       /*
-        let user = localStorage.getItem("user-info");
-        //recogemos el nombre del usuario para mostrarlo en pantalla
-        this.name = JSON.parse(user).name;
-        //si el usuario no está registrado vuelve al login
-        if (!user) {
-            this.$router.push({name:"Login-vecino"})
-        }*/
   }
 }
 </script>
@@ -154,8 +155,8 @@ h1 {
 }
 .container-bg {
   background: var(--degradado2inv);
-  margin-top: 1.2em;
-  padding: 2em 7em 16em 7em;
+  margin-top: 1em;
+  padding: 1.4em 7em 16em 7em;
   margin-bottom: 8em;
   border-radius: 30px;
   box-shadow: rgb(0 0 0 / 18%) 0px 3px 8px;
@@ -219,5 +220,26 @@ h3 {
 }
 .btnAsig:hover {
   color: var(--verde);
+}
+@media screen and (max-width: 530px) {
+  .container-bg {
+    padding: 1.4em 6em 18em 6em;
+  }
+  h1 {
+    font-size: 1.8em;
+    text-align: center;
+  }
+  .container {
+    margin-top: 12.4em;
+    padding: 14px 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .texto-areas {
+    padding: 0;
+  }
+  .btnAsig {
+    font-size: 1.4em;
+  }
 }
 </style>

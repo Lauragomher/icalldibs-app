@@ -59,4 +59,9 @@ export default {
         display: none;
     }
 }
+@media screen and (max-width: 360px) {
+    #iconoNav {
+        width: 3.4em;
+    }
+}
 </style>

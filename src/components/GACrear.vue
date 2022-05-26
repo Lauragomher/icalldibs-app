@@ -75,6 +75,8 @@ export default {
       idZona:"",
       id_usuario:"",
       id_admin:"",
+      rol_usuario:"",
+      id_rol:"",
       nombre: "",
       id_zona:"",
       comunidad:[],
@@ -129,6 +131,8 @@ export default {
     this.idComunidadNow = JSON.parse(usuario).id_comunidad;
     this.id_usuario = JSON.parse(usuario).id_usuario;
     this.rol_usuario = JSON.parse(usuario).rol_usuario;
+    //usuarios sin comunidad
+    this.id_rol = JSON.parse(usuario).id_rol;
     console.log(usuario);
     console.log(this.id_usuario);
         //le enviamos a la api la id de la comunidad y que la zona esté activa
@@ -139,7 +143,11 @@ export default {
       let datosCom= response.data.data.datos;
       this.comunidad = datosCom;
       console.log(response);
-      console.log(this.comunidad)
+      console.log(this.comunidad);
+      //control de acceso por rol de usuario
+      if (this.rol_usuario==1||this.id_rol==1) {
+        this.$router.push({name:"Areas-comunes"})
+      }
     })
     .catch(e => {
       console.log(e);
@@ -229,8 +237,8 @@ h1 {
 }
 .container-bg {
   background: var(--degradado2inv);
-  margin-top: 1.2em;
-  padding: 2em 9em 37em 9em;
+  margin-top: 1em;
+  padding: 1.4em 9em 37em 9em;
   margin-bottom: 8em;
   border-radius: 30px;
   box-shadow: rgb(0 0 0 / 18%) 0px 3px 8px;
@@ -335,5 +343,62 @@ h3 {
 }
 .btnAsig:hover {
   color: var(--verde);
+}
+@media screen and (max-width: 650px) {
+  .container-bg {
+    padding: 1.4em 9.6em 40em 9.6em;
+  }
+  h1 {
+    font-size: 1.8em;
+    text-align: center;
+  }
+  .container {
+    margin-top: 12.4em;
+    padding: 14px 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .texto-areas {
+    padding: 0;
+  }
+  .btnAsig {
+    font-size: 1.4em;
+  }
+}
+@media screen and (max-width: 560px) {
+  .container-int,
+  .container-intb {
+    display: flex;
+    flex-flow: column wrap;
+    grid-gap: 0;
+  }
+  .container-bg {
+    padding: 1.4em 6em 38em 6em;
+  }
+}
+@media screen and (max-width: 460px) {
+  .container {
+    padding: 8px 20px;
+  }
+  select {
+    width: 98%;
+  }
+  input {
+    width: 90%;
+  }
+  textarea {
+    width: 90%;
+  }
+  .btnAsig {
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 396px) {
+  h1 {
+    font-size: 1.6em;
+  }
+  .container {
+    margin-top: 14.4em;
+  }
 }
 </style>
