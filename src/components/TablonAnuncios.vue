@@ -1,6 +1,11 @@
 <template>
   <div>
-    <Header />
+    <div class="header" v-show="this.id_rol==1||this.rol_usuario==1">
+      <Header />
+    </div>
+    <div class="header" v-show="this.id_rol==2||this.rol_usuario==2"> 
+      <Header2admin />
+    </div>
     <div class="container-areas" v-show="this.idComunidad"  v-for="item in comunidadData" :key="item">                 
       <h1>Tablón de anuncios</h1>
       <h2>{{item.nombre_comunidad}}</h2>
@@ -47,6 +52,7 @@
 
 <script>
 import Header from "./Header.vue"
+import Header2admin from "./Header2admin.vue"
 import axios from "axios";
 export default {
   name: "Tablon-anuncios",
@@ -65,7 +71,8 @@ export default {
     }
   },
   components: {
-    Header
+    Header,
+    Header2admin
   },
   mounted(){
     console.log(this.$route.params.com)
